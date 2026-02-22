@@ -18,6 +18,14 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('draw', data);
   });
 
+  socket.on('undo', (data) => {
+    socket.broadcast.emit('undo', data);
+  });
+
+  socket.on('redo', (data) => {
+    socket.broadcast.emit('redo', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('user disconnected:', socket.id);
   });
